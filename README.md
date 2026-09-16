@@ -68,3 +68,28 @@ Key fields: `Order ID`, `Order Date`, `Ship Date`, `Customer ID/Name`, `Segment`
 - **Standard Class** is the most-used shipping mode (58.5% of orders)
 - **COD** is the leading payment mode by sales value (42.6%), followed by Online (35.4%) and Cards (22.0%)
 - Only **4.9%** of orders were returned (287 out of 5,897)
+
+## 🚧 Challenges Faced
+- **Reconciling ship-mode vs. order-date breakdowns:** The dataset carries both Order Date and Ship Date hierarchies (Year/Quarter/Month/Day), which required careful field selection in visuals to avoid mixing the two timelines.
+- **Sales forecasting:** Power BI's built-in forecasting (based on exponential smoothing) needed a continuous daily date axis, so the Order Date line chart had to be cleaned of gaps before the 15-day forecast band could be generated reliably.
+- **Cross-filtering across many visuals:** With 10+ visuals on one page, keeping slicer interactions (Region filter) fast and consistent across every chart, card, and the map required some layout and interaction-mode tuning.
+
+## 🧠 Skills Demonstrated
+- Data modeling and import in Power BI Desktop
+- DAX measures (aggregations like Sum of Sales, Sum of Profit)
+- Interactive report design: slicers, cross-filtering, drill-through-ready layout
+- Time-series visualization and built-in forecasting
+- Geo-spatial visualization (State-level map)
+- Dashboard storytelling across multiple report pages
+
+## 🔮 Future Scope
+- Connect to a live/refreshable data source (SQL Server, Excel Online, or a REST API) instead of a static import, to enable scheduled refresh
+- Add a dedicated **Customer Analysis** page (RFM segmentation, repeat vs. new customers, lifetime value)
+- Extend the forecast model with more advanced techniques (e.g., ARIMA or Prophet via Python/R integration) and compare accuracy against Power BI's native forecast
+- Add **drill-through pages** from the map/category charts to a product-level or order-level detail view
+- Publish the report to the **Power BI Service** and embed it for public/mobile viewing
+- Add row-level security if extended to a multi-region sales team scenario
+
+## 👤 About the Author
+**Abhishek Rai**
+Built as a self-driven Power BI project to practice data modeling, DAX, and dashboard storytelling on real-world retail sales data.
